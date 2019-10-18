@@ -1,0 +1,20 @@
+
+:host {
+}
+
+#top {
+  stop-color: lighten(var(--ion-color-primary, #005eff), 75%);
+}
+
+#bottom {
+  stop-color: var(--ion-color-primary, #005eff);
+}
+
+#iconlogo {
+  fill: var(--ion-color-primary-contrast, #ffffff);
+  stroke-width: 3;
+  stroke: var(--ion-color-danger, #ff0000);
+ }
+
+svg path {
+}

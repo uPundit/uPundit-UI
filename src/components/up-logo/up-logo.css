@@ -1,0 +1,29 @@
+:host {
+}
+
+#you {
+  fill: var(--ion-color-danger, #ff0000);
+  stroke-width: .5;
+  stroke: var(--ion-color-primary, #005eff)
+}
+
+#p, #u, #n, #d, #i, #t {
+  fill: var(--ion-color-primary, #005eff);
+  stroke-width: .5;
+  stroke: var(--ion-color-danger, #ff0000);
+}
+
+/* svg path {
+  fill-opacity: 0;
+  animation: 3s fade 1 forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fade {
+  from {
+    fill-opacity: 0;
+  }
+  to {
+    fill-opacity: 1;
+  }
+} */
