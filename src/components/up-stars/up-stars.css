@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+svg {
+  --myColor: var(--ion-color-success, #4ddc10);
+  --friendsColor: var(--ion-color-primary, #1935d3);
+  --schoolColor: var(--ion-color-tertiary, #9244ff);
+  --followingColor: var(--ion-color-warning, #f97721);
+  --othersColor: var(--ion-color-medium, #919191);
+}
+
+#my {
+  fill: var(--myColor);
+  stroke: var(--myColor);
+}
+
+#friends {
+  fill: var(--friendsColor);
+  stroke: var(--friendsColor);
+}
+
+#school {
+  fill: var(--schoolColor);
+  stroke: var(--schoolColor);
+}
+
+#following {
+  fill: var(--followingColor);
+  stroke: var(--followingColor);
+}
+
+#others {
+  fill: var(--othersColor);
+  stroke: var(--othersColor);
+}

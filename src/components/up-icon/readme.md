@@ -7,7 +7,7 @@
 
 | Property | Attribute | Description | Type     | Default |
 | -------- | --------- | ----------- | -------- | ------- |
-| `height` | `height`  |             | `string` | `'2em'` |
+| `height` | `height`  |             | `string` | `"2em"` |
 
 
 ----------------------------------------------

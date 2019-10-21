@@ -7,7 +7,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  upRatings,
+} from './components/up-stars/up-stars';
 
 export namespace Components {
   interface UpIcon {
@@ -15,6 +17,10 @@ export namespace Components {
   }
   interface UpLogo {
     'height'?: string;
+  }
+  interface UpStars {
+    'height': string;
+    'ratings': upRatings;
   }
 }
 
@@ -32,9 +38,16 @@ declare global {
     prototype: HTMLUpLogoElement;
     new (): HTMLUpLogoElement;
   };
+
+  interface HTMLUpStarsElement extends Components.UpStars, HTMLStencilElement {}
+  const HTMLUpStarsElement: {
+    prototype: HTMLUpStarsElement;
+    new (): HTMLUpStarsElement;
+  };
   interface HTMLElementTagNameMap {
     'up-icon': HTMLUpIconElement;
     'up-logo': HTMLUpLogoElement;
+    'up-stars': HTMLUpStarsElement;
   }
 }
 
@@ -45,10 +58,15 @@ declare namespace LocalJSX {
   interface UpLogo {
     'height'?: string;
   }
+  interface UpStars {
+    'height'?: string;
+    'ratings'?: upRatings;
+  }
 
   interface IntrinsicElements {
     'up-icon': UpIcon;
     'up-logo': UpLogo;
+    'up-stars': UpStars;
   }
 }
 
@@ -60,6 +78,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'up-icon': LocalJSX.UpIcon & JSXBase.HTMLAttributes<HTMLUpIconElement>;
       'up-logo': LocalJSX.UpLogo & JSXBase.HTMLAttributes<HTMLUpLogoElement>;
+      'up-stars': LocalJSX.UpStars & JSXBase.HTMLAttributes<HTMLUpStarsElement>;
     }
   }
 }
