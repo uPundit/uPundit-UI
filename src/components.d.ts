@@ -19,8 +19,8 @@ export namespace Components {
     'height'?: string;
   }
   interface UpStars {
-    'height': string;
-    'ratings': upRatings;
+    'height'?: string;
+    'ratings'?: upRatings;
   }
 }
 

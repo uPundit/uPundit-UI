@@ -15,8 +15,8 @@ export interface upRatings extends Array<upRateLevel> {}
 })
 export class UpStars {
   // The stars component height
-  @Prop({ mutable: true }) height: string = "7rem";
-  @Prop({ mutable: true }) ratings: upRatings = [
+  @Prop({ mutable: true }) height?: string = "7rem";
+  @Prop({ mutable: true, reflect: true }) ratings?: upRatings = [
     { id: "my", num: -1, stars: 0.8 },
     { id: "friends", num: 3, stars: 0.47 },
     { id: "school", num: 297, stars: 0.42 },
