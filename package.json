@@ -1,6 +1,6 @@
 {
   "name": "upundit-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "uPundit - UI Components",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
