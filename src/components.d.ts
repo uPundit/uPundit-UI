@@ -8,7 +8,7 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  upRatings,
+  uprating,
 } from './components/up-stars/up-stars';
 
 export namespace Components {
@@ -20,7 +20,7 @@ export namespace Components {
   }
   interface UpStars {
     'height'?: string;
-    'ratings'?: upRatings;
+    'ratings'?: uprating;
   }
 }
 
@@ -60,7 +60,7 @@ declare namespace LocalJSX {
   }
   interface UpStars {
     'height'?: string;
-    'ratings'?: upRatings;
+    'ratings'?: uprating;
   }
 
   interface IntrinsicElements {
