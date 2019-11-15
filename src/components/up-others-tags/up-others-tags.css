@@ -1,0 +1,6 @@
+@import "../up-global.css";
+
+#icons {
+  stroke: var(--iconsDark);
+  fill: var(--iconsDark);
+}

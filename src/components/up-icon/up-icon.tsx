@@ -7,7 +7,7 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class UpIcon {
   // Icon height
-  @Prop({ mutable: true }) height?: string = "2em";
+  @Prop({ mutable: true }) height?: string = "100%";
 
   render() {
     return (

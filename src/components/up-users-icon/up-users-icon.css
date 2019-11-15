@@ -1,0 +1,22 @@
+@import "../up-global.css";
+
+:host {
+  align-content: center;
+  vertical-align: middle;
+}
+
+#friends-tip {
+  fill: var(--friendsDark);
+}
+
+#school-tip {
+  fill: var(--schoolDark);
+}
+
+#following-tip {
+  fill: var(--followingDark);
+}
+
+#others-tip {
+  fill: var(--othersDark);
+}

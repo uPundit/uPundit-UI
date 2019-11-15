@@ -7,7 +7,7 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class UpLogo {
   // Logo height
-  @Prop({ mutable: true }) height?: string = "1em";
+  @Prop({ mutable: true }) height?: string = "100%";
 
   render() {
     return (

@@ -1,7 +1,8 @@
 import { Component, Prop, h } from "@stencil/core";
+import { strokeWidth } from "../up-global";
 
 interface upRateLevel {
-  id: string;
+  source: string;
   num: number;
   stars: number;
 }
@@ -15,90 +16,65 @@ export interface uprating extends Array<upRateLevel> {}
 })
 export class UpStars {
   // The stars component height
-  @Prop({ mutable: true }) height?: string = "7rem";
+  @Prop({ mutable: true }) height?: string = "100%";
   @Prop({ mutable: true }) ratings?: uprating = [
-    { id: "my", num: -1, stars: 0.0 },
-    { id: "friends", num: 0, stars: 0.0 },
-    { id: "school", num: 0, stars: 0.0 },
-    { id: "following", num: 0, stars: 0.0 },
-    { id: "others", num: 0, stars: 0.0 }
+    { source: "my", num: -1, stars: 0.85 },
+    { source: "friends", num: 5, stars: 0.65 },
+    { source: "school", num: 13, stars: 0.45 },
+    { source: "following", num: 1000, stars: 0.25 },
+    { source: "others", num: 99999, stars: 0.45 }
   ];
 
   render() {
-    const starsWidth: number = 500;
-    const starsHeight: number = 100;
+    const numStars: number = 5;
+    const starsHW: number = 100;
 
     return (
-      <svg height={this.height} viewBox="0 0 1000 505">
+      <svg
+        id="the-stars"
+        height={this.height}
+        viewBox={"0 0 1000 ".concat((this.ratings.length * starsHW).toString())}
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         {this.ratings.map((rating, index) => {
           return (
-            <g id={rating.id} transform={"translate(0.0, ".concat((index * starsHeight + 5).toString(), ".0)")}>
-              <mask id={rating.id.concat("Mask")} maskContentUnits="userSpaceOnUse">
-                <rect
-                  id="Rect"
-                  x="0"
-                  y="0"
-                  width={(rating.stars * starsWidth).toString()}
-                  height="100"
-                  fill="white"
-                ></rect>
-              </mask>
-              <g id="MaskedStars" mask={"url(#".concat(rating.id, "Mask)")} transform="translate(495.0, 3.0)">
-                <polygon
-                  id="S1"
-                  points="50 75 20.6107374 90.4508497 26.2235871 57.7254249 2.44717419 34.5491503 35.3053687 29.7745751 50 0 64.6946313 29.7745751 97.5528258 34.5491503 73.7764129 57.7254249 79.3892626 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S2"
-                  points="150 75 120.610737 90.4508497 126.223587 57.7254249 102.447174 34.5491503 135.305369 29.7745751 150 0 164.694631 29.7745751 197.552826 34.5491503 173.776413 57.7254249 179.389263 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S3"
-                  points="250 75 220.610737 90.4508497 226.223587 57.7254249 202.447174 34.5491503 235.305369 29.7745751 250 0 264.694631 29.7745751 297.552826 34.5491503 273.776413 57.7254249 279.389263 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S4"
-                  points="350 75 320.610737 90.4508497 326.223587 57.7254249 302.447174 34.5491503 335.305369 29.7745751 350 0 364.694631 29.7745751 397.552826 34.5491503 373.776413 57.7254249 379.389263 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S5"
-                  points="450 75 420.610737 90.4508497 426.223587 57.7254249 402.447174 34.5491503 435.305369 29.7745751 450 0 464.694631 29.7745751 497.552826 34.5491503 473.776413 57.7254249 479.389263 90.4508497"
-                ></polygon>
-              </g>
-              <g id="StarsBackground" transform="translate(495.0, 3.0)" stroke-width="4" fill-opacity="0.2">
-                <polygon
-                  id="S1"
-                  points="50 75 20.6107374 90.4508497 26.2235871 57.7254249 2.44717419 34.5491503 35.3053687 29.7745751 50 0 64.6946313 29.7745751 97.5528258 34.5491503 73.7764129 57.7254249 79.3892626 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S2"
-                  points="150 75 120.610737 90.4508497 126.223587 57.7254249 102.447174 34.5491503 135.305369 29.7745751 150 0 164.694631 29.7745751 197.552826 34.5491503 173.776413 57.7254249 179.389263 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S3"
-                  points="250 75 220.610737 90.4508497 226.223587 57.7254249 202.447174 34.5491503 235.305369 29.7745751 250 0 264.694631 29.7745751 297.552826 34.5491503 273.776413 57.7254249 279.389263 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S4"
-                  points="350 75 320.610737 90.4508497 326.223587 57.7254249 302.447174 34.5491503 335.305369 29.7745751 350 0 364.694631 29.7745751 397.552826 34.5491503 373.776413 57.7254249 379.389263 90.4508497"
-                ></polygon>
-                <polygon
-                  id="S5"
-                  points="450 75 420.610737 90.4508497 426.223587 57.7254249 402.447174 34.5491503 435.305369 29.7745751 450 0 464.694631 29.7745751 497.552826 34.5491503 473.776413 57.7254249 479.389263 90.4508497"
-                ></polygon>
-              </g>
+            <g id={rating.source} transform={"translate(0.0, ".concat((index * starsHW + 5).toString(), ".0)")}>
+              <defs>
+                <mask id={rating.source.concat("-mask")} fill="white">
+                  <rect
+                    id={rating.source.concat("-rect")}
+                    x="495"
+                    y="0"
+                    width={(rating.stars * numStars * starsHW).toString()}
+                    height="100"
+                  ></rect>
+                </mask>
+              </defs>
               <text
-                id="Text"
+                id={rating.source.concat("-num")}
                 font-family="Courier-Bold, Courier"
                 font-size="100"
                 font-weight="bold"
-                letter-spacing="3.75"
-                stroke-width="0"
+                letter-spacing="3"
               >
                 <tspan x="450" y="83" writing-mode="rl" text-anchor="end">
                   {rating.num > 0 ? rating.num.toLocaleString(undefined, { maximumFractionDigits: 0 }) : ""}
                 </tspan>
               </text>
+              <path
+                id={rating.source.concat("-stars")}
+                stroke-width={strokeWidth.toString()}
+                class="not-active"
+                d="M945,0 L959.694631,29.7745751 L992.552826,34.5491503 L968.776413,57.7254249 L974.389263,90.4508497 L945,75 L915.610737,90.4508497 L921.223587,57.7254249 L897.447174,34.5491503 L930.305369,29.7745751 L945,0 Z M845,0 L859.694631,29.7745751 L892.552826,34.5491503 L868.776413,57.7254249 L874.389263,90.4508497 L845,75 L815.610737,90.4508497 L821.223587,57.7254249 L797.447174,34.5491503 L830.305369,29.7745751 L845,0 Z M745,0 L759.694631,29.7745751 L792.552826,34.5491503 L768.776413,57.7254249 L774.389263,90.4508497 L745,75 L715.610737,90.4508497 L721.223587,57.7254249 L697.447174,34.5491503 L730.305369,29.7745751 L745,0 Z M645,0 L659.694631,29.7745751 L692.552826,34.5491503 L668.776413,57.7254249 L674.389263,90.4508497 L645,75 L615.610737,90.4508497 L621.223587,57.7254249 L597.447174,34.5491503 L630.305369,29.7745751 L645,0 Z M545,0 L559.694631,29.7745751 L592.552826,34.5491503 L568.776413,57.7254249 L574.389263,90.4508497 L545,75 L515.610737,90.4508497 L521.223587,57.7254249 L497.447174,34.5491503 L530.305369,29.7745751 L545,0 Z"
+              ></path>
+              <path
+                id={rating.source.concat("-masked")}
+                mask={"url(#".concat(rating.source, "-mask)")}
+                stroke-width={strokeWidth.toString()}
+                class="active"
+                d="M945,0 L959.694631,29.7745751 L992.552826,34.5491503 L968.776413,57.7254249 L974.389263,90.4508497 L945,75 L915.610737,90.4508497 L921.223587,57.7254249 L897.447174,34.5491503 L930.305369,29.7745751 L945,0 Z M845,0 L859.694631,29.7745751 L892.552826,34.5491503 L868.776413,57.7254249 L874.389263,90.4508497 L845,75 L815.610737,90.4508497 L821.223587,57.7254249 L797.447174,34.5491503 L830.305369,29.7745751 L845,0 Z M745,0 L759.694631,29.7745751 L792.552826,34.5491503 L768.776413,57.7254249 L774.389263,90.4508497 L745,75 L715.610737,90.4508497 L721.223587,57.7254249 L697.447174,34.5491503 L730.305369,29.7745751 L745,0 Z M645,0 L659.694631,29.7745751 L692.552826,34.5491503 L668.776413,57.7254249 L674.389263,90.4508497 L645,75 L615.610737,90.4508497 L621.223587,57.7254249 L597.447174,34.5491503 L630.305369,29.7745751 L645,0 Z M545,0 L559.694631,29.7745751 L592.552826,34.5491503 L568.776413,57.7254249 L574.389263,90.4508497 L545,75 L515.610737,90.4508497 L521.223587,57.7254249 L497.447174,34.5491503 L530.305369,29.7745751 L545,0 Z"
+              ></path>
             </g>
           );
         })}

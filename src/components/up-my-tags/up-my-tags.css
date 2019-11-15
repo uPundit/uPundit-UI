@@ -1,0 +1,25 @@
+@import "../up-global.css";
+
+:host {
+  display: block;
+}
+
+.active {
+  fill: var(--myLight);
+  fill-opacity: inherit;
+  stroke: var(--myDark);
+}
+
+.disable {
+  fill: var(--iconsLight);
+  fill-opacity: inherit;
+  stroke: var(--iconsLight);
+}
+
+.activeFrame {
+  stroke: var(--myDark);
+}
+
+.disableFrame {
+  stroke: var(--iconsDark);
+}

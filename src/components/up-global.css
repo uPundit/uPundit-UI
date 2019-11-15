@@ -1,0 +1,54 @@
+svg {
+  /** Color to use **/
+  --myLight: var(--ion-color-success, #10dc60);
+  --myDark: var(--ion-color-success, #10dc60);
+  --friendsLight: var(--ion-color-primary, #3880ff);
+  --friendsDark: var(--ion-color-primary, #3880ff);
+  --schoolLight: var(--ion-color-warning, #ffae00);
+  --schoolDark: var(--ion-color-warning, #ffae00);
+  --followingLight: var(--ion-color-tertiary, #7044ff);
+  --followingDark: var(--ion-color-tertiary, #7044ff);
+  --othersLight: var(--ion-color-medium, #989aa2);
+  --othersDark: var(--ion-color-medium, #989aa2);
+  --iconsLight: var(--ion-color-light-shade, #d7d8da);
+  --iconsDark: var(--ion-color-medium-shade, #86888f);
+}
+
+mask {
+  fill: white;
+}
+
+#my {
+  fill: var(--myLight);
+  stroke: var(--myDark);
+}
+
+#friends {
+  fill: var(--friendsLight);
+  stroke: var(--friendsDark);
+}
+
+#school {
+  fill: var(--schoolLight);
+  stroke: var(--schoolDark);
+}
+
+#following {
+  fill: var(--followingLight);
+  stroke: var(--followingDark);
+}
+
+#others {
+  fill: var(--othersLight);
+  stroke: var(--othersDark);
+}
+
+/* The opacity of the image */
+.set-opacity,
+.not-active {
+  fill-opacity: 0.2;
+}
+
+.active {
+  fill-opacity: 1;
+}
